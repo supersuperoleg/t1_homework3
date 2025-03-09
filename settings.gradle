@@ -1,4 +1,4 @@
 rootProject.name = 't1_homework3'
 include 'application'
-include 'app-starter'
+//include 'app-starter'
 
