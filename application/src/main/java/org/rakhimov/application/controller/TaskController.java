@@ -7,6 +7,8 @@ import org.rakhimov.application.dto.TaskDto;
 import org.rakhimov.application.exception.TaskCreationException;
 import org.rakhimov.application.exception.TaskNotFoundException;
 import org.rakhimov.application.service.TaskService;
+import org.rakhimov.starter.aspect.annotation.LogHttpRequest;
+import org.rakhimov.starter.aspect.annotation.LogHttpResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +21,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
-//    @LogHttpResponse
+    @LogHttpResponse
     @PostMapping
     public ResponseDto<TaskDto> createTask(@RequestBody TaskDto taskDTO) {
         try {
@@ -34,7 +36,7 @@ public class TaskController {
         }
     }
 
-//    @LogHttpRequest
+    @LogHttpRequest
     @GetMapping("/{id}")
     public ResponseDto<TaskDto> getTaskById(@PathVariable("id") Long id) {
         try {
@@ -55,7 +57,7 @@ public class TaskController {
         }
     }
 
-//    @LogHttpResponse
+    @LogHttpResponse
     @PutMapping("/{id}")
     public ResponseDto<TaskDto> updateTask(@PathVariable("id") Long id, @RequestBody TaskDto taskDto) {
         try {
@@ -75,7 +77,7 @@ public class TaskController {
         }
     }
 
-//    @LogHttpResponse
+    @LogHttpResponse
     @DeleteMapping("/{id}")
     public ResponseDto<Void> deleteTask(@PathVariable("id") Long id) {
         try {
@@ -94,7 +96,7 @@ public class TaskController {
         }
     }
 
-//    @LogHttpResponse
+    @LogHttpResponse
     @GetMapping
     public ResponseDto<List<TaskDto>> getAllTasks() {
         try {
