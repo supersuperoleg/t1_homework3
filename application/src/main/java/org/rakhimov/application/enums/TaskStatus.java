@@ -8,6 +8,9 @@ public enum TaskStatus {
     UNDEFINED;
 
     public static TaskStatus fromString(String status) {
+        if (status == null) {
+            return TaskStatus.UNDEFINED;
+        }
         try {
             return TaskStatus.valueOf(status.toUpperCase());
         } catch (IllegalArgumentException e) {
