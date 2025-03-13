@@ -24,7 +24,6 @@ public class TaskService {
     private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
 
-
     public TaskDto createTask(TaskDto taskDto) {
         try {
             Task task = taskMapper.toEntity(taskDto);
@@ -36,12 +35,10 @@ public class TaskService {
         }
     }
 
-
     public Optional<TaskDto> getTaskById(Long id) {
         return taskRepository.findById(id)
                 .map(taskMapper::toDto);
     }
-
 
     public TaskDto updateTask(Long id, TaskDto taskDto) {
         Optional<Task> optionalTask = taskRepository.findById(id);

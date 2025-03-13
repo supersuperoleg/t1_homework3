@@ -21,6 +21,7 @@ public class TaskMapper {
     public TaskDto toDto(Task entity) {
         TaskStatus status = entity.getStatus();
         return TaskDto.builder()
+                .id(entity.getId())
                 .title(entity.getTitle())
                 .description(entity.getDescription())
                 .status(status.toString())
